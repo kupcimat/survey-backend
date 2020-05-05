@@ -1,6 +1,9 @@
 plugins {
     base
-    kotlin("jvm") version "1.3.70" apply false
+    kotlin("jvm") version "1.3.72" apply false
+    kotlin("plugin.spring") version "1.3.72" apply false
+    id("org.springframework.boot") version "2.3.0.RC1" apply false
+    id("io.spring.dependency-management") version "1.0.9.RELEASE" apply false
 }
 
 allprojects {
@@ -9,6 +12,7 @@ allprojects {
 
     repositories {
         jcenter()
+        maven("https://repo.spring.io/milestone")
     }
 
     tasks {
