@@ -15,4 +15,6 @@ dependencies {
     implementation(kotlin("stdlib-jdk8"))
     implementation(kotlin("reflect"))
     implementation("com.fasterxml.jackson.core:jackson-annotations")
+    implementation("org.springframework.data:spring-data-commons")
+    implementation("org.springframework.data:spring-data-mongodb")
 }

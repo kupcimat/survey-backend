@@ -7,6 +7,9 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As.WRAPPER_OBJECT
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NAME
 import com.fasterxml.jackson.annotation.JsonTypeName
+import org.springframework.data.annotation.Id
+import org.springframework.data.annotation.TypeAlias
+import org.springframework.data.mongodb.core.mapping.Document
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class Paging(
@@ -31,3 +34,16 @@ data class UserTaskList(
     val items: List<UserTask>,
     val paging: Paging
 )
+
+@Document(collection = "userTask")
+@TypeAlias("userTaskEntity")
+data class UserTaskEntity(
+    val phone: String,
+    val functionId: CloudFunction,
+    val status: TaskStatus,
+    @Id
+    val id: String? = null
+)
+
+fun UserTask.toEntity(status: TaskStatus) = UserTaskEntity(phone, functionId, status)
+fun UserTaskEntity.toUserTask() = UserTask(phone, functionId, status)
