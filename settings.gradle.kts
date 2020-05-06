@@ -1,4 +1,4 @@
-include("common", "restapi", "worker")
+include("common", "restapi", "worker", "tests")
 
 pluginManagement {
     repositories {

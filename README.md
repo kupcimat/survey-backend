@@ -11,6 +11,10 @@ Then you can use `docker-compose` to run the application locally with all requir
 ```shell script
 docker-compose up
 ```
+You can also run a simple e2e test:
+```shell script
+./gradlew clean tests:test
+```
 When you finish, you can cleanup resources using:
 ```shell script
 docker-compose down
