@@ -141,4 +141,13 @@ Public facing REST API with JSON payload. It contains following endpoints for ac
 Executor of async tasks - sending SMS and running cloud functions. Easily extensible by defining and registering new cloud functions.
 
 ## Missing / TODOs
-- Frontend, simple JavaScript SPA having form to register new user tasks (phone & cloud function). Communicating with the backend using the public REST API.
+- Frontend, simple JavaScript SPA having a form to register new user tasks (phone & cloud function). Communicating with the backend using the public REST API.
+- Input validation for the REST API
+- Better logging
+- Monitoring, although Spring Boot includes Micrometer, which could be used to collect and report metrics
+- More tests, I didn't finish as many tests as I wanted. All unit tests are missing, component tests for rest controllers, e2e rest api tests... (example [rest api test](https://github.com/kupcimat/striker/blob/master/src/test/groovy/org/saigon/striker/controller/AgodaControllerTest.groovy#L30))
+- Decide how to deal with special cases like allowing the same phone number multiple times, receiving duplicate response messages
+- Better handling of the messaging, now it's very basic, we should think about different error cases, retries, acknowledge of finished tasks
+- Actually integrate SMS functionality, e.g. Twilio and register webhooks for the responses
+- Actually implement the cloud functions
+- Think about the deployment
