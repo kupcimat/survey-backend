@@ -4,8 +4,6 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.toList
 import org.kupcimat.survey.common.model.TaskStatus
 import org.kupcimat.survey.common.model.UserTask
-import org.kupcimat.survey.common.model.toEntity
-import org.kupcimat.survey.common.model.toUserTask
 import org.kupcimat.survey.restapi.UserTaskRepository
 import org.springframework.stereotype.Component
 

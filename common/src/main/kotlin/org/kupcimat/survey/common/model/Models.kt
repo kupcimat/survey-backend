@@ -24,7 +24,9 @@ data class UserTask(
     val phone: String,
     val functionId: CloudFunction,
     val status: TaskStatus? = null
-)
+) {
+    fun toEntity(status: TaskStatus) = UserTaskEntity(phone, functionId, status)
+}
 
 @JsonTypeName("userTaskList")
 @JsonTypeInfo(use = NAME, include = WRAPPER_OBJECT)
@@ -43,7 +45,6 @@ data class UserTaskEntity(
     val status: TaskStatus,
     @Id
     val id: String? = null
-)
-
-fun UserTask.toEntity(status: TaskStatus) = UserTaskEntity(phone, functionId, status)
-fun UserTaskEntity.toUserTask() = UserTask(phone, functionId, status)
+) {
+    fun toUserTask() = UserTask(phone, functionId, status)
+}
