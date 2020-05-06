@@ -49,7 +49,7 @@ User task represents user survey request, which goes through multiple stages aft
         +-----+      +------+          +----------+           +------+
 ```
 
-### restapi
+### [restapi](https://github.com/kupcimat/survey-backend/blob/master/restapi/src/main/kotlin/org/kupcimat/survey/restapi/controller/UserTaskController.kt)
 Public facing REST API with JSON payload. It contains following endpoints for accessing user tasks:
 ```
 > GET /api/userTasks
@@ -137,7 +137,7 @@ Public facing REST API with JSON payload. It contains following endpoints for ac
 - schedules run of a configured cloud function
 - with modifications could be used in a webhook of 3rd party SMS service (e.g. Twilio)
 
-### worker
+### [worker](https://github.com/kupcimat/survey-backend/blob/master/worker/src/main/kotlin/org/kupcimat/survey/worker/Worker.kt)
 Executor of async tasks - sending SMS and running cloud functions. Easily extensible by defining and registering new cloud functions.
 
 ## Missing / TODOs
