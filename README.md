@@ -11,7 +11,7 @@ Then you can use `docker-compose` to run the application locally with all requir
 ```shell script
 docker-compose up
 ```
-You can also run a simple e2e test:
+You can also run a simple [e2e test](https://github.com/kupcimat/survey-backend/blob/master/tests/src/test/kotlin/org/kupcimat/survey/integration/TaskLifecycleIT.kt):
 ```shell script
 ./gradlew clean tests:test
 ```
