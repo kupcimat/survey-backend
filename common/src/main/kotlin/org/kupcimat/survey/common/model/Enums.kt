@@ -1,7 +1,7 @@
 package org.kupcimat.survey.common.model
 
 enum class TaskStatus {
-    NEW
+    NEW, SENT, RECEIVED, DONE
 }
 
 enum class CloudFunction {
