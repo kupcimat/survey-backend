@@ -1,7 +1,6 @@
-package org.kupcimat.survey.restapi
+package org.kupcimat.survey.common.repository
 
 import org.kupcimat.survey.common.model.UserTaskEntity
 import org.springframework.data.repository.kotlin.CoroutineCrudRepository
 
-// TODO move to common
 interface UserTaskRepository : CoroutineCrudRepository<UserTaskEntity, String>
