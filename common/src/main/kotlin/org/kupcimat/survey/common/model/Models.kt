@@ -37,6 +37,14 @@ data class UserTaskList(
     val paging: Paging
 )
 
+@JsonTypeName("userTaskMessage")
+@JsonTypeInfo(use = NAME, include = WRAPPER_OBJECT)
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(NON_NULL)
+data class UserTaskMessage(
+    val value: String
+)
+
 @Document(collection = "userTask")
 @TypeAlias("userTaskEntity")
 data class UserTaskEntity(
@@ -44,7 +52,8 @@ data class UserTaskEntity(
     val functionId: CloudFunction,
     val status: TaskStatus,
     @Id
-    val id: String? = null
+    val id: String? = null,
+    val message: String? = null
 ) {
     fun toUserTask() = UserTask(phone, functionId, status)
 }

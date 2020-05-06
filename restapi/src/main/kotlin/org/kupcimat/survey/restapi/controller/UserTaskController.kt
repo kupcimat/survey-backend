@@ -3,6 +3,7 @@ package org.kupcimat.survey.restapi.controller
 import org.kupcimat.survey.common.model.Paging
 import org.kupcimat.survey.common.model.UserTask
 import org.kupcimat.survey.common.model.UserTaskList
+import org.kupcimat.survey.common.model.UserTaskMessage
 import org.kupcimat.survey.restapi.service.UserTaskService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -30,5 +31,15 @@ class UserTaskController(val userTaskService: UserTaskService) {
     suspend fun getTask(@PathVariable taskId: String): ResponseEntity<UserTask> {
         val task = userTaskService.getTask(taskId) ?: return ResponseEntity.notFound().build()
         return ResponseEntity.ok(task)
+    }
+
+    @PostMapping(UriTemplates.USER_TASK_MESSAGE)
+    suspend fun createMessage(
+        @PathVariable taskId: String,
+        @RequestBody message: UserTaskMessage
+    ): ResponseEntity<UserTask> {
+        // TODO add input validation
+        val task = userTaskService.createMessage(taskId, message) ?: return ResponseEntity.notFound().build()
+        return ResponseEntity.accepted().body(task)
     }
 }

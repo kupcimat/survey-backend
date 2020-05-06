@@ -6,4 +6,5 @@ object UriTemplates {
 
     const val USER_TASKS = "$API_PREFIX/userTasks"
     const val USER_TASK = "$USER_TASKS/{taskId}"
+    const val USER_TASK_MESSAGE = "$USER_TASK/message"
 }

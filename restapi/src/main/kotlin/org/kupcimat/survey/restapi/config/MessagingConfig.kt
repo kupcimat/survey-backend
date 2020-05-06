@@ -9,7 +9,8 @@ import org.springframework.context.annotation.Configuration
 class MessagingConfig {
 
     @Bean
-    fun sentMessagesQueue(): Queue {
-        return Queue(Queues.SENT_MESSAGES)
-    }
+    fun sentMessagesQueue() = Queue(Queues.SENT_MESSAGES)
+
+    @Bean
+    fun receivedMessagesQueue() = Queue(Queues.RECEIVED_MESSAGES)
 }
