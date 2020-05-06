@@ -1,3 +1,7 @@
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
+import org.gradle.api.tasks.testing.logging.TestLogEvent.*
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     base
     kotlin("jvm") version "1.3.72" apply false
@@ -17,10 +21,19 @@ allprojects {
     }
 
     tasks {
-        withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+        withType<KotlinCompile> {
             kotlinOptions {
                 jvmTarget = "11"
                 freeCompilerArgs = listOf("-Xjsr305=strict")
+            }
+        }
+
+        withType<Test> {
+            useJUnitPlatform()
+
+            testLogging {
+                events = setOf(PASSED, SKIPPED, FAILED)
+                exceptionFormat = FULL
             }
         }
     }
