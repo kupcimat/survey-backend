@@ -1,8 +1,15 @@
 plugins {
+    java
     kotlin("jvm")
     kotlin("plugin.spring")
     id("org.springframework.boot")
     id("io.spring.dependency-management")
+    id("com.google.cloud.tools.jib")
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
 }
 
 springBoot {
@@ -10,6 +17,19 @@ springBoot {
         properties {
             time = null
         }
+    }
+}
+
+jib {
+    from {
+        image = "gcr.io/distroless/java:11"
+    }
+    to {
+        image = "survey-worker"
+    }
+    container {
+        args = listOf("--spring.profiles.active=production")
+        jvmFlags = listOf("-Xmx300m", "-Xss512k", "-XX:CICompilerCount=2", "-Dfile.encoding=UTF-8")
     }
 }
 

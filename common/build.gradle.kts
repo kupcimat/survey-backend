@@ -1,8 +1,14 @@
 import org.springframework.boot.gradle.plugin.SpringBootPlugin
 
 plugins {
+    java
     kotlin("jvm")
     id("io.spring.dependency-management")
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
 }
 
 dependencyManagement {
